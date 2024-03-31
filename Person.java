@@ -2,16 +2,14 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
-public class Person{
+public class Person extends EmployeeDetails{
     String name;
     String dob;
-    public void displayName() 
-    {
+    public void displayName() {
         System.out.println("Person Name: " + name);
     }
 
-    public void displayAge(String dob) 
-    {
+    public void displayAge(String dob) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate birthDate = LocalDate.parse(dob, formatter);
         LocalDate currentDate = LocalDate.now();
@@ -19,11 +17,12 @@ public class Person{
         int age = period.getYears();
         System.out.println("Age of Person: " + age);
     }
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         Person p =new Person();
         p.name = "Prateek S Patted";
         p.displayName();
         p.displayAge("17-03-2003");
+        p.displaydetails();
+       
     }
 }
